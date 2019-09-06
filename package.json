@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "docker-compose up && node utils/import-to-mongo",
+    "postinstall": "docker-compose up -d && node utils/import-to-mongo",
     "start": "node app"
   },
   "description": "h2o test task",
