@@ -1,0 +1,6 @@
+﻿version: '2'
+services:
+ h2o-demo-db:
+  image: mongo:latest
+  ports:
+    - "27017:27017"

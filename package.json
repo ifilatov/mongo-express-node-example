@@ -1,0 +1,25 @@
+{
+  "name": "rest-api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "docker-compose up && node utils/import-to-mongo",
+    "start": "node app"
+  },
+  "description": "h2o test task",
+  "author": {
+    "name": "Ivan Filatov"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.0",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "mongoose": "^5.6.12",
+    "morgan": "^1.7.0",
+    "node-gyp": "^5.0.3",
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "^2.3.0",
+    "swagger-ui-express": "^4.0.7"
+  }
+}

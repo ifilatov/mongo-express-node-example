@@ -1,0 +1,182 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "H2O test task",
+    "description": "Test task for h2o",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Articles",
+      "description": "API for articles in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/articles": {
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "summary": "Get all articles",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Articles"
+            }
+          }
+        }
+      }
+    },
+    "/articles/search": {
+      "parameters": [
+        {
+          "name": "q",
+          "in": "query",
+          "required": true,
+          "description": "Query string for freeform search in Titles",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "summary": "Search articles",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Articles"
+            }
+          }
+        }
+      }
+    },
+    "/articles/{ArticleId}": {
+      "parameters": [
+        {
+          "name": "ArticleId",
+          "in": "path",
+          "required": true,
+          "description": "ID of Article that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "summary": "Get Article with given ID",
+        "responses": {
+          "200": {
+            "description": "Article is found",
+            "schema": {
+              "$ref": "#/definitions/Article"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Article": {
+      "required": [
+        "_id"
+      ],
+      "properties": {
+        "oldid": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "lewissplit": {
+          "type": "string"
+        },
+        "cgisplit": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "places": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "people": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "orgs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exchanges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "companies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unknown": {
+          "type": "string"
+        },
+        "text": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "dateline": {
+              "type": "string"
+            },
+            "body": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "Articles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Article"
+      }
+    }
+  }
+}
