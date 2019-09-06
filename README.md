@@ -3,10 +3,10 @@
 ## setup
 npm install
 
-##start server
+## start server
 node app
 
-##documentation
+## documentation
 http://localhost:3000/api-docs/
 
 
