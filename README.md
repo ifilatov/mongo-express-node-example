@@ -1,4 +1,4 @@
-﻿# rest-api test task for H2O
+﻿# MongoDB + Express.js + Node.js REST API example with Docker Compose
 
 ## prerequisites
 node
